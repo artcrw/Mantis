@@ -17,7 +17,6 @@ testdata = [
 
 @pytest.mark.parametrize("project", testdata, ids=[repr(x) for x in testdata])
 def test_add_proj(app, project):
-    app.session.login("administrator", "root")
     old_projects_list = app.soap.get_list()
     app.project.add_new_project(project)
     new_projects_list = app.soap.get_list()

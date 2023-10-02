@@ -9,7 +9,7 @@ from fixture.mail import MailHelper
 
 class Application:
 
-    def __init__(self, browser, config):
+    def __init__(self, browser, base_url, config):
         if browser == "firefox":
             self.wd = webdriver.Firefox(executable_path=r'C:\tempf\geckodriver.exe')
         elif browser == "chrome":
@@ -26,7 +26,7 @@ class Application:
         self.james = JamesHelper(self)
         self.mail = MailHelper(self)
         self.config = config
-        self.base_url = config['web']['baseUrl']
+        self.base_url = base_url
 
     def is_valid(self):
         try:

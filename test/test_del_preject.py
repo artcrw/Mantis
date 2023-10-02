@@ -17,7 +17,6 @@ testdata = [
 
 @pytest.mark.parametrize("project", testdata, ids=[repr(x) for x in testdata])
 def test_del_proj(app, project):
-    app.session.login("administrator", "root")
     if len(app.project.get_list()) == 0:
         app.project.create(project)
     old_projects_list = app.soap.get_list()
