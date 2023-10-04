@@ -25,4 +25,3 @@ def test_del_proj(app, project):
     new_projects_list = app.soap.get_list()
     old_projects_list.remove(project_rnd)
     assert sorted(old_projects_list, key=Project.is_name_empty) == sorted(new_projects_list, key=Project.is_name_empty)
-    app.session.logout()

@@ -23,4 +23,3 @@ def test_add_proj(app, project):
     assert len(old_projects_list)+1 == len(new_projects_list)
     old_projects_list.append(project)
     assert sorted(old_projects_list, key=Project.is_name_empty) == sorted(new_projects_list, key=Project.is_name_empty)
-    app.session.logout()
